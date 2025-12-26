@@ -2,6 +2,7 @@ import React, { useEffect } from 'react'
 import Product from './Product'
 import { useDispatch, useSelector } from 'react-redux';
 import { fetchProducts } from '@/store/productSlice';
+import Navbar from './Navbar';
 
 export default function ProductList() {
 
@@ -30,12 +31,15 @@ export default function ProductList() {
   }
 
   return (
-    <div className='grid grid-cols-4 h-full gap-4 m-4'>
+    <>
+    <Navbar/>
+    <div className='grid grid-cols-4 h-full gap-4 m-4 p-5'>
         {
-        product_items.map((item)=>{
+          product_items.map((item)=>{
             return <Product key={item.id} product={item} />
-        })
+          })
         }
     </div>
+        </>
   )
 }
